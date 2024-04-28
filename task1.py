@@ -1,17 +1,19 @@
 from queue import Queue
 
 queue = Queue()
+number = 0
 
 def generate_request():
+    global number
     new_application = 'Application'
     queue.put(new_application)
-    print('Нова заявка додана до черги')
+    number += 1
+    print(f'Нова заявка {number} додана до черги')
 
 def process_request():
     if not queue.empty():
         queue.get()
         print('Заявка видалена')
-        generate_request()
     else:
         print('Черга пуста')
 
